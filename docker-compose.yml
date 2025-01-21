@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  screeni-py:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ZSCALER_CERT=/usr/local/share/ca-certificates/zscaler.crt
+    volumes:
+      - /usr/local/share/ca-certificates/zscaler.crt:/usr/local/share/ca-certificates/zscaler.crt:ro
+    ports:
+      - "8501:8501"  # Map the app's port
